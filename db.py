@@ -1,7 +1,13 @@
 import firebase_admin
+import os
 from firebase_admin import credentials
 from firebase_admin import firestore
-cred = credentials.Certificate("/home/asterbytes/Downloads/private_key.json")
+key_path = os.getenv('FIREBASE_KEY_PATH')
+if not key_path:
+    raise ValueError("FIREBASE_KEY_PATH environment variable is not set.")
+cred = credentials.Certificate(key_path)
+
+# cred = credentials.Certificate("/home/asterbytes/Downloads/private_key.json")
 firebase_admin.initialize_app(cred)
 
 db=firestore.client()
