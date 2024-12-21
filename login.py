@@ -14,9 +14,9 @@ class PasswordRequest(BaseModel):
     password: str = Field(..., description="Enter the password (min 8 characters)", min_length=8)
     confirm_password: str = Field(..., description="Confirm the password (min 8 characters)", min_length=8)
 
-@app.get("/")
-async def read_root():
-    return {"message": "Welcome to the password management API!"}
+# @app.get("/")
+# async def read_root():
+#     return {"message": "Welcome to the password management API!"}
 
 @app.post("/Signup/request_otp/{contact}",response_model=Response)
 async def request_otp(

@@ -7,7 +7,7 @@ from firebase_admin import firestore
 #     raise ValueError("FIREBASE_KEY_PATH environment variable is not set.")
 # cred = credentials.Certificate(key_path)
 
-cred = credentials.Certificate("private_key.json")
+cred = credentials.Certificate("new_private_key.json")
 firebase_admin.initialize_app(cred)
 
 db=firestore.client()
