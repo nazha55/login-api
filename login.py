@@ -10,14 +10,14 @@ class Response(BaseModel):
     message: str
 
 class PasswordRequest(BaseModel):
-    contact: str = Field(..., description="Enter a valid email or phone number (include country code)", min_length=1)
+    contact: str = Field(..., description="Enter a valid email or phone number (include country code)")
     password: str = Field(..., description="Enter the password (min 8 characters)", min_length=8)
     confirm_password: str = Field(..., description="Confirm the password (min 8 characters)", min_length=8)
 
 
 @app.post("/Signup/request_otp/{contact}",response_model=Response)
 async def request_otp(
-    contact:str=Path(...,description="enter the valid email or phone_number(include country code)",min_length=1 )
+    contact:str=Path(...,description="enter the valid email or phone_number(include country code)" )
 ):
     """
     API to request otp
@@ -46,7 +46,7 @@ async def request_otp(
 @app.post("/Signup/verification/{contact}/{otp}",response_model=Response)
 async def otp_verification(
     otp:str =Path(...,description="Enter the 4 digit otp"),
-    contact:str=Path(...,description="enter the valid email or phone_number(include country code)",min_length=1 )
+    contact:str=Path(...,description="enter the valid email or phone_number(include country code)" )
 ):
     """
     API to verify the otp

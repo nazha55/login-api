@@ -44,10 +44,17 @@ def send_otp_via_sms(mobile_number: str,otp) -> int:
     send an OTP to the given mobile number via Twilio.
     """
     try:
-        
+        account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+        auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+
+        # Check if the environment variables are set correctly
+        if account_sid is None or auth_token is None:
+            raise ValueError("Twilio credentials are not set in the environment variables.")
+
+        client = Client(account_sid, auth_token)
 
         # Create Twilio client
-        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+        # client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
         # Send the OTP
         message = client.messages.create(
