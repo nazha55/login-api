@@ -5,7 +5,8 @@ from twilio.rest import Client
 from dotenv import load_dotenv
 import os
 
-
+TWILIO_ACCOUNT_SID="AC3d8a69533dd58e755f45f5c5aa3e5bf7"
+TWILIO_AUTH_TOKEN="70eae166ea01b15d2bbaa83877fd2552"
 
 
 
@@ -35,8 +36,8 @@ def send_email_otp(contact: str, otp: str):
         print(f"Failed to send OTP: {e}")
 
     
-TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+# TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+# TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 TWILIO_PHONE_NUMBER = "+17163404884"
 
 def send_otp_via_sms(mobile_number: str,otp) -> int:
@@ -44,14 +45,14 @@ def send_otp_via_sms(mobile_number: str,otp) -> int:
     send an OTP to the given mobile number via Twilio.
     """
     try:
-        account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-        auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+        # account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+        # auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 
         # Check if the environment variables are set correctly
-        if account_sid is None or auth_token is None:
+        if TWILIO_ACCOUNT_SID is None or TWILIO_AUTH_TOKEN is None:
             raise ValueError("Twilio credentials are not set in the environment variables.")
 
-        client = Client(account_sid, auth_token)
+        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
         # Create Twilio client
         # client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
