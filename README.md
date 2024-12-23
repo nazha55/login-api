@@ -1,8 +1,9 @@
-Project API Documentation
+# Project API Documentation
+
 This project includes all the essential APIs related to user authentication. The APIs are implemented in the login.py file.
 
-APIs
-Signup API: Allows users to create a new account.
+## APIs
+*Signup API: Allows users to create a new account.
 Signin API: Allows users to log in to their accounts.
 Forget Password API: Allows users to reset their forgotten passwords.
 Request OTP API: Allows users to request a one-time password for authentication.
