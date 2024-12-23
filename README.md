@@ -22,3 +22,10 @@ uvicorn main:app --reload
 ```
 Open your browser and navigate to the Swagger UI for API documentation:
 http://127.0.0.1:8000/docs
+
+## Note : 
+- Twilio SMS Service:
+Since this application uses the free tier of the Twilio SMS service, only mobile numbers that are pre-verified in the Twilio Console will receive SMS notifications.
+
+- Recommendation:
+For a better user experience and broader compatibility, it is recommended to use email verification instead of SMS.
