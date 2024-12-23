@@ -4,9 +4,7 @@ import smtplib
 from twilio.rest import Client
 from dotenv import load_dotenv
 import os
-
-TWILIO_ACCOUNT_SID="AC3d8a69533dd58e755f45f5c5aa3e5bf7"
-TWILIO_AUTH_TOKEN="70eae166ea01b15d2bbaa83877fd2552"
+from config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN
 
 
 
